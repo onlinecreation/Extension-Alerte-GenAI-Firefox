@@ -1,0 +1,1 @@
+# Extension-Alerte-GenAI-Firfefox
