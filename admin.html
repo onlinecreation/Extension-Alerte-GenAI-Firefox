@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Listes - Next.ink</title>
+    <style>
+        :root {
+            --primary-color: #4a4a4a;
+            --secondary-color: #f86844;
+            --background-color: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            line-height: 1.6;
+            color: var(--primary-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .list-info {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .list-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .list-info p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Slider Switch Styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--secondary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .status-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            display: block;
+        }
+
+        .status-error {
+            background-color: #f2dede;
+            color: #a94442;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gestion des listes de filtrage</h1>
+            <p>Activez ou désactivez les différentes listes de filtrage</p>
+            <p id="last-update-time" style="font-size: 0.8em; color: #666;"></p>
+            <button id="update-lists">Mettre à jour les listes</button>
+        </div>
+
+        <div class="list-item">
+            <div class="list-info">
+                <h3>Médias GenAI</h3>
+                <p>Détecte les sites tout ou partie générés par intelligence artificielle.<a target="_blank" href="https://next.ink/153613/enquete-plus-de-1-000-medias-en-francais-generes-par-ia-polluent-le-web-et-google/">Liste Next.ink</a></p>
+                <p>Taille du fichier: <span id="genai-count">0</span></p>
+                <p>Dernière mise à jour: <span id="genai-date">-</span></p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="genai-toggle" data-list-type="genai">
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="list-item">
+            <div class="list-info">
+                <h3>Red Flag Domains</h3>
+                <p>Récupére la liste des domaines identifiés par <a target="_blank" href="https://red.flag.domains/">Red Flag Domains</a></p>
+                <p>Nombre d'éléments: <span id="redflag-count">0</span></p>
+                <p>Dernière mise à jour: <span id="redflag-date">-</span></p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="redflag-toggle" data-list-type="redflag">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        
+        <div class="list-item">
+            <div class="list-info">
+                <h3>Listes noires de l'Autorité des marchés financiers</h3>
+                <p>Sociétés et sites non autorisés par <a target="_blank" href="https://www.amf-france.org/fr/espace-epargnants/proteger-son-epargne/listes-noires-et-mises-en-garde">AMF</a></p>
+                <p>Nombre d'éléments: <span id="amf-count">0</span></p>
+                <p>Dernière mise à jour: <span id="amf-date">-</span></p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="amf-toggle" data-list-type="amf">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        
+        <div id="status"></div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
