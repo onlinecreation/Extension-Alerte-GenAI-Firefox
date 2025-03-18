@@ -2,7 +2,7 @@
 
 En marge de [l’enquête de Jean-Marc Manach sur des médias en français générés par IA](https://next.ink/153613/enquete-plus-de-1-000-medias-en-francais-generes-par-ia-polluent-le-web-et-google/) nous avons développé une extension pour Chrome et Firefox (y compris en version mobile sur Android) afin d’être alerté lorsque vous visitez un des sites que nous avons identifiés (à la main).
 
-Au fil des semaines, la liste a continué de s’enrichir, dépassant allégrement les 1 500 puis les 2 000 et maintenant 3 000 domaines… et ce n’est pas fini ! En plus de nouvelles listes, nous avons ajouté une mise à jour automatique de la liste dans la version 2.0 de notre extension. Cette extension a été développée à l’aide de l’IA générative Claude, avec une supervisation humaine.
+Au fil des semaines, la liste a continué de s’enrichir, dépassant allégrement les 1 500 puis les 2 000 et maintenant 3 000 domaines… et ce n’est pas fini ! En plus de nouvelles listes, nous avons ajouté une mise à jour automatique de la liste dans la version 2.0 de notre extension. Cette extension a été développée à l’aide de l’IA générative Claude, avec une supervision humaine.
 
 ## Télécharger notre extension depuis les Web Store :
 
@@ -13,7 +13,7 @@ Au fil des semaines, la liste a continué de s’enrichir, dépassant allégreme
 
 L’extension a été développée avec l’aide de [Hezirem](https://github.com/hezirem) qui s’est occupé de toute la partie obsucation de la liste, merci 1000x à lui ! Merci également aux devs de moji qui ont patientement répondus à mes questions et demandes, parfois intelligentes, mais trop peu souvent malheureusement ^^
 
-Au fil des versions, l’extension peut maintenant ne plus afficher d’alertes sur certains domaines, propose une mise à jour automatique et périodique des listes et intègre les listes de Red Flag Domaines et celles de l’Autorité des marchés financiers (AMF), avec des messages d’alertes personnalisés.
+Au fil des versions, l’extension peut maintenant ne plus afficher d’alertes sur certains domaines, propose une mise à jour automatique et périodique des listes et intègre les listes de Red Flag Domains et celles de l’Autorité des marchés financiers (AMF), avec des messages d’alertes personnalisés.
 
 Le code est géré est maintenu par moi même. Disclaimer : je ne suis pas développeur, donc n’hésitez pas à me proposer des pistes d’améliorations. Dans la mesure du possible et de mes connaissances, je tâcherais d’y répondre. 
 
