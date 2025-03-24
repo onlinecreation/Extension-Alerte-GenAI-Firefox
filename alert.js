@@ -54,6 +54,14 @@ if (location.hash) {
             urlinfo = decodeURIComponent(param[1]);
         }
     }
+    document.querySelectorAll('.icon').forEach(function (icon) {
+        icon.style.display = 'none';
+    });
+    if (document.querySelector('.icon.alert-' + category)) {
+        document.querySelector('.icon.alert-' + category).style.display = 'block';
+    } else {
+        document.querySelector('.icon.alert-generix').style.display = 'block';
+    }
 }
 
 // Disable the proceed button by default
